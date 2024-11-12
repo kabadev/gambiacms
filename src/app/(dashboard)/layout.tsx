@@ -12,18 +12,24 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   const router = useRouter();
+  // Initialize `isAuthenticated` only when `window` is defined
   const [isAuthenticated, setIsAuthenticated] = React.useState<boolean>(() => {
-    const session = localStorage.getItem("session");
-    return session ? JSON.parse(session).isLoggedIn : false;
+    if (typeof window !== "undefined") {
+      const session = localStorage.getItem("session");
+      return session ? JSON.parse(session).isLoggedIn : false;
+    }
+    return false;
   });
 
   React.useEffect(() => {
-    const session = JSON.parse(localStorage.getItem("session") || "{}");
-
-    if (session.isLoggedIn) {
-      setIsAuthenticated(true);
-    } else {
-      router.push("/login"); // Redirect to login if not authenticated
+    // Re-check authentication status on mount
+    if (typeof window !== "undefined") {
+      const session = JSON.parse(localStorage.getItem("session") || "{}");
+      if (session.isLoggedIn) {
+        setIsAuthenticated(true);
+      } else {
+        router.push("/login"); // Redirect to login if not authenticated
+      }
     }
   }, [router]);
 
