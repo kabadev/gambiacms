@@ -42,16 +42,22 @@ const caseData = [
 ];
 
 const caseStatusData = [
-  { name: "Pending", value: 30 },
-  { name: "In Progress", value: 45 },
-  { name: "Resolved", value: 25 },
+  { name: "Opinion", value: 30 },
+  { name: "Information Filed", value: 45 },
+  { name: "Prosecution Stage", value: 25 },
+  { name: "Defence Stage", value: 10 },
+  { name: "Judgement Pending", value: 20 },
 ];
 
 const caseNatureData = [
-  { name: "Civil", value: 40 },
-  { name: "Criminal", value: 30 },
-  { name: "Family", value: 20 },
-  { name: "Corporate", value: 10 },
+  { name: "Murder", value: 40 },
+  { name: "Robbery", value: 30 },
+  { name: "Rape", value: 20 },
+  { name: "Drug Trafficking", value: 10 },
+  { name: "Money Laundering", value: 15 },
+  { name: "Economic Crimes", value: 25 },
+  { name: "Stealing", value: 35 },
+  { name: "Corruption", value: 50 },
 ];
 
 const courtData = [
@@ -188,24 +194,7 @@ export default function Dashboard() {
         </Card>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mb-6">
-        <Card className="col-span-2">
-          <CardHeader>
-            <CardTitle>Case Overview</CardTitle>
-          </CardHeader>
-          <CardContent className="pl-2">
-            <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={caseData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Bar dataKey="cases" fill="#8884d8" />
-              </BarChart>
-            </ResponsiveContainer>
-          </CardContent>
-        </Card>
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2 mb-6">
         <Card>
           <CardHeader>
             <CardTitle>Case Status</CardTitle>
@@ -237,12 +226,10 @@ export default function Dashboard() {
             </ResponsiveContainer>
           </CardContent>
         </Card>
-      </div>
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2 mb-6">
         <Card>
           <CardHeader>
-            <CardTitle>Case Nature</CardTitle>
+            <CardTitle>Case Offense</CardTitle>
           </CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={300}>
@@ -268,6 +255,26 @@ export default function Dashboard() {
                 </Pie>
                 <Tooltip />
               </PieChart>
+            </ResponsiveContainer>
+          </CardContent>
+        </Card>
+      </div>
+
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2 mb-6">
+        <Card>
+          <CardHeader>
+            <CardTitle>Case Overview</CardTitle>
+          </CardHeader>
+          <CardContent className="pl-2">
+            <ResponsiveContainer width="100%" height={300}>
+              <BarChart data={caseData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="cases" fill="#8884d8" />
+              </BarChart>
             </ResponsiveContainer>
           </CardContent>
         </Card>

@@ -49,35 +49,35 @@ const courts = [
     id: 1,
     name: "Supreme Court",
     jurisdiction: "Federal",
-    location: "Washington, D.C.",
+    location: "Banjul",
     type: "Appellate",
   },
   {
     id: 2,
     name: "New York Southern District Court",
     jurisdiction: "Federal",
-    location: "New York, NY",
+    location: "Banjul",
     type: "District",
   },
   {
     id: 3,
     name: "California Superior Court",
     jurisdiction: "State",
-    location: "Los Angeles, CA",
+    location: "Banjul",
     type: "Trial",
   },
   {
     id: 4,
     name: "Texas Court of Appeals",
     jurisdiction: "State",
-    location: "Austin, TX",
+    location: "Banjul",
     type: "Appellate",
   },
   {
     id: 5,
     name: "Florida Circuit Court",
     jurisdiction: "State",
-    location: "Miami, FL",
+    location: "Banjul",
     type: "Trial",
   },
 ];
@@ -142,7 +142,7 @@ export default function CourtsTable() {
           Add New Court
         </Button>
       </div>
-      <div className="rounded-md border">
+      <div className="rounded-md border p-4">
         <Table>
           <TableHeader>
             <TableRow>
